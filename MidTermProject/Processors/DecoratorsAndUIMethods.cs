@@ -280,7 +280,6 @@ namespace MidTermProject.Processors
             Console.WriteLine("|" + props[0].Name + " : " + props[0].GetValue(model) + new string(' ', 23 - ((string)props[0].GetValue(model)).Length) + new string(' ', model.GetLongestProperty() + 8) + "|");
             for (int i = 1; i < props.Length; i++)
             {
-                if (props[i].GetValue(model) == "Access denied") continue;
                 Console.WriteLine("|" + new string(' ', 11) + props[i].Name + new string(' ', 23 - ((string)props[i].Name).Length) + ": " + props[i].GetValue(model) + new string(' ', max - ((string)props[i].GetValue(model)).Length - 38) + "|");
             }
         }

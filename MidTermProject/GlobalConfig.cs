@@ -86,10 +86,27 @@ namespace MidTermProject
         }
 
         /// <summary>
+        /// Check if needed folders exist
+        /// </summary>
+        public static void CheckTheFolders()
+        {
+            if (!Directory.Exists(ConfigurationManager.AppSettings["RootUserDataFolderPath"]))
+            {
+                Directory.CreateDirectory(ConfigurationManager.AppSettings["RootUserDataFolderPath"]);
+            }
+
+            if (!Directory.Exists(ConfigurationManager.AppSettings["SimpleUserDataFolderPath"]))
+            {
+                Directory.CreateDirectory(ConfigurationManager.AppSettings["SimpleUserDataFolderPath"]);
+            }
+        }
+
+        /// <summary>
         /// Run the party
         /// </summary>
         public static void StartProgram()
         {
+            GlobalConfig.CheckTheFolders();
             DecoratorsAndUIMethods.UserLoginMenu();
             while (!GlobalConfig.InitializeUser(Console.ReadLine()))
             {
